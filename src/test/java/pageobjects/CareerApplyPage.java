@@ -13,8 +13,6 @@ import java.util.Locale;
 
 public class CareerApplyPage extends BasePage {
 
-    private static final String ERROR_MESSAGE_FOR_BLANK_FIELD = "Please fill out this field.";
-
     @FindBy(tagName = "h2")
     private WebElement h2Tag;
 
@@ -65,13 +63,13 @@ public class CareerApplyPage extends BasePage {
         getWebDriverWait().until(ExpectedConditions.elementToBeClickable(submitBtn)).click();
     }
 
-    public void assertValidationMessageWhenFullNameIsMissing() {
+    public void assertValidationMessageWhenFullNameIsMissing(String errorMessage) {
 
         getWebDriverWait().until(
                 ExpectedConditions.attributeContains(
                         fullNameText,
                         "validationMessage",
-                        ERROR_MESSAGE_FOR_BLANK_FIELD)
+                        errorMessage)
         );
     }
 
@@ -80,12 +78,12 @@ public class CareerApplyPage extends BasePage {
         fullNameText.sendKeys(fullName);
     }
 
-    public void assertValidationMessageWhenEmailIsMissing() {
+    public void assertValidationMessageWhenEmailIsMissing(String errorMessage) {
         getWebDriverWait().until(
                 ExpectedConditions.attributeContains(
                         emailText,
                         "validationMessage",
-                        ERROR_MESSAGE_FOR_BLANK_FIELD)
+                        errorMessage)
         );
     }
 
@@ -94,12 +92,12 @@ public class CareerApplyPage extends BasePage {
         emailText.sendKeys(email);
     }
 
-    public void assertValidationMessageWhenPhoneIsMissing() {
+    public void assertValidationMessageWhenPhoneIsMissing(String errorMessage) {
         getWebDriverWait().until(
                 ExpectedConditions.attributeContains(
                         phoneText,
                         "validationMessage",
-                        ERROR_MESSAGE_FOR_BLANK_FIELD)
+                        errorMessage)
         );
     }
 
@@ -109,8 +107,7 @@ public class CareerApplyPage extends BasePage {
         phoneText.sendKeys(phoneNumber);
     }
 
-    public void assertValidationMessageWhenResumeIsMissing() {
-        String errorMessage = "Please select a file.";
+    public void assertValidationMessageWhenResumeIsMissing(String errorMessage) {
         getWebDriverWait().until(
                 ExpectedConditions.attributeContains(
                         uploadFile,
@@ -125,8 +122,7 @@ public class CareerApplyPage extends BasePage {
         uploadFile.sendKeys(filePath);
     }
 
-    public void assertValidationMessageWhenTermsAndConditionCheckBoxIsNotChecked() {
-        String errorMessage = "Please check this box if you want to proceed.";
+    public void assertValidationMessageWhenTermsAndConditionCheckBoxIsNotChecked(String errorMessage) {
         getWebDriverWait().until(
                 ExpectedConditions.attributeContains(
                         termsAndConditionsChkBox,
@@ -135,8 +131,7 @@ public class CareerApplyPage extends BasePage {
         );
     }
 
-    public void assertValidationMessageWhenEmailIsInvalid() {
-        String errorMessage = "Please enter an email address.";
+    public void assertValidationMessageWhenEmailIsInvalid(String errorMessage) {
         getWebDriverWait().until(
                 ExpectedConditions.attributeContains(
                         emailText,

@@ -1,6 +1,7 @@
 package steps;
 
 import com.google.inject.Inject;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -25,9 +26,9 @@ public class CareerApplyStepDef {
         careerApplyPage.clickSubmitButton();
     }
 
-    @Then("^User should see the validation message to fill the Full Name$")
-    public void userShouldSeeTheValidationMessageToFillTheFullName()  {
-        careerApplyPage.assertValidationMessageWhenFullNameIsMissing();
+    @Then("^User should see the validation message \"([^\"]*)\" for Full Name field$")
+    public void userShouldSeeTheValidationMessageForFullNameField(String errorMessage)  {
+        careerApplyPage.assertValidationMessageWhenFullNameIsMissing(errorMessage);
     }
 
     @When("^User sets the 'Full Name' as \"([^\"]*)\"$")
@@ -35,9 +36,9 @@ public class CareerApplyStepDef {
         careerApplyPage.enterFullName(fullName);
     }
 
-    @Then("^User should see the validation message to fill the Email$")
-    public void userShouldSeeTheValidationMessageToFillTheEmail() {
-        careerApplyPage.assertValidationMessageWhenEmailIsMissing();
+    @Then("^User should see the validation message \"([^\"]*)\" against the Email field$")
+    public void userShouldSeeTheValidationMessageAgainstTheEmailField(String errorMessage) {
+        careerApplyPage.assertValidationMessageWhenEmailIsMissing(errorMessage);
     }
 
     @And("^User sets the 'Email' as \"([^\"]*)\"$")
@@ -45,9 +46,9 @@ public class CareerApplyStepDef {
         careerApplyPage.enterEmail(email);
     }
 
-    @Then("^User should see the validation message to fill the Phone$")
-    public void userShouldSeeTheValidationMessageToFillThePhone() {
-        careerApplyPage.assertValidationMessageWhenPhoneIsMissing();
+    @Then("^User should see the validation message \"([^\"]*)\" against the Phone field$")
+    public void userShouldSeeTheValidationMessageAgainstThePhoneField(String errorMessage) {
+        careerApplyPage.assertValidationMessageWhenPhoneIsMissing(errorMessage);
     }
 
     @And("^User sets the 'Phone' as \"([^\"]*)\"$")
@@ -55,9 +56,9 @@ public class CareerApplyStepDef {
         careerApplyPage.enterPhone(phoneNumber);
     }
 
-    @Then("^User should see the validation message to Upload a Resume file$")
-    public void userShouldSeeTheValidationMessageToUploadAResumeFile() {
-        careerApplyPage.assertValidationMessageWhenResumeIsMissing();
+    @Then("^User should see the validation message \"([^\"]*)\" for Upload a Resume file$")
+    public void userShouldSeeTheValidationMessageForUploadAResumeFile(String errorMessage) {
+        careerApplyPage.assertValidationMessageWhenResumeIsMissing(errorMessage);
     }
 
     @And("^User selects the file to upload$")
@@ -65,14 +66,14 @@ public class CareerApplyStepDef {
         careerApplyPage.selectFileToUpload();
     }
 
-    @Then("^User should see the validation message for the 'Terms and Conditions' checkbox$")
-    public void userShouldSeeTheValidationMessageForTheTermsAndConditionsCheckbox() {
-        careerApplyPage.assertValidationMessageWhenTermsAndConditionCheckBoxIsNotChecked();
+    @Then("^User should see the validation message \"([^\"]*)\" against the 'Terms and Conditions' checkbox$")
+    public void userShouldSeeTheValidationMessageAgainstTheTermsAndConditionsCheckbox(String errorMessage) {
+        careerApplyPage.assertValidationMessageWhenTermsAndConditionCheckBoxIsNotChecked(errorMessage);
     }
 
-    @Then("^User should see the validation message to enter a valid email address$")
-    public void userShouldSeeTheValidationMessageToEnterAValidEmailAddress() {
-        careerApplyPage.assertValidationMessageWhenEmailIsInvalid();
+    @Then("^User should see the validation message \"([^\"]*)\" to suggest entering a valid email address$")
+    public void userShouldSeeTheValidationMessageToSuggestEnteringAValidEmailAddress(String errorMessage) {
+        careerApplyPage.assertValidationMessageWhenEmailIsInvalid(errorMessage);
     }
 
     @When("^User sets the 'Title' as \"([^\"]*)\"$")

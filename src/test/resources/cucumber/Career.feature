@@ -19,14 +19,14 @@ Feature: Career page of Hexad.de
     When User click the Apply button
     Then Career Apply Page is rendered
     When User clicks the Submit Button
-    Then User should see the validation message to fill the Full Name
+    Then User should see the validation message "Please fill out this field." for Full Name field
 
   Scenario: Verify validation on the 'Email' field when career form submitted with just the 'Full Name' field
     When User click the Apply button
     Then Career Apply Page is rendered
     When User sets the 'Full Name' as "John"
     And User clicks the Submit Button
-    Then User should see the validation message to fill the Email
+    Then User should see the validation message "Please fill out this field." against the Email field
 
   Scenario: Verify validation on the 'Phone' field when career form submitted with just the 'Full Name' and 'Email' fields
     When User click the Apply button
@@ -34,7 +34,7 @@ Feature: Career page of Hexad.de
     When User sets the 'Full Name' as "John"
     And User sets the 'Email' as "johnd@gmail.com"
     When User clicks the Submit Button
-    Then User should see the validation message to fill the Phone
+    Then User should see the validation message "Please fill out this field." against the Phone field
 
   Scenario: Verify validation on the 'Upload' field when career form submitted with just the 'Full Name', 'Email' and 'Phone' fields
     When User click the Apply button
@@ -43,7 +43,7 @@ Feature: Career page of Hexad.de
     And User sets the 'Email' as "johnd@gmail.com"
     And User sets the 'Phone' as "1234567890"
     When User clicks the Submit Button
-    Then User should see the validation message to Upload a Resume file
+    Then User should see the validation message "Please select a file." for Upload a Resume file
 
   Scenario: Verify validation for the 'Terms and Conditions' checkbox when all other required fields on the career form are submitted
     When User click the Apply button
@@ -53,7 +53,7 @@ Feature: Career page of Hexad.de
     And User sets the 'Phone' as "1234567890"
     And User selects the file to upload
     When User clicks the Submit Button
-    Then User should see the validation message for the 'Terms and Conditions' checkbox
+    Then User should see the validation message "Please check this box if you want to proceed." against the 'Terms and Conditions' checkbox
 
   Scenario: Verify validation on the 'Email' field when user enters 'Email' field in a bad format
     When User click the Apply button
@@ -61,7 +61,7 @@ Feature: Career page of Hexad.de
     When User sets the 'Full Name' as "John"
     And User sets the 'Email' as "johnd@"
     When User clicks the Submit Button
-    Then User should see the validation message to enter a valid email address
+    Then User should see the validation message "Please enter an email address." to suggest entering a valid email address
 
   Scenario: Verify submission of the form with valid values
     When User click the Apply button
