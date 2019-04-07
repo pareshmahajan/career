@@ -1,10 +1,12 @@
 package steps;
 
 import com.google.inject.Inject;
+import cucumber.api.PendingException;
 import cucumber.api.java.After;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import pageobjects.CareerPage;
 
 public class CareerStepDef {
@@ -34,5 +36,21 @@ public class CareerStepDef {
     @After
     public void quitBrowser(){
         careerPage.getDriver().quit();
+    }
+
+    @When("^User click the Job Description button of the UI developer job$")
+    public void userClickTheJobDescriptionButtonOfTheUIDeveloperJob()  {
+        careerPage.jobDescriptionButton.click();
+    }
+
+    @Then("^Job Description of the UI developer job is displayed correctly$")
+    public void jobDescriptionOfTheUIDeveloperJobIsDisplayedCorrectly() {
+        String expectedJobDescriptionText = "Hexad GmbH, a unique organization dedicated to the widespread adoption of open " +
+                "source application software, is looking for a User Interface Developer to join our team. " +
+                "An ideal candidate would have deep skills in Web Design and implementation with a passion for " +
+                "building great web-based user interfaces.";
+
+        careerPage.getWebDriverWait().until(ExpectedConditions.textToBePresentInElement(careerPage.firstJobDescription,
+                expectedJobDescriptionText));
     }
 }
