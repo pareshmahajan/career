@@ -5,6 +5,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import pageobjects.CareerApplyPage;
 
 public class CareerApplyStepDef {
@@ -16,7 +17,6 @@ public class CareerApplyStepDef {
         this.careerApplyPage = careerApplyPage;
     }
 
-
     @Then("^Career Apply Page is rendered$")
     public void careerApplyPageIsRendered() {
         careerApplyPage.getWebDriverWait().until(ExpectedConditions.textToBePresentInElement(careerApplyPage.h2Tag,
@@ -25,7 +25,6 @@ public class CareerApplyStepDef {
 
     @When("^User clicks the Submit Button$")
     public void userClicksTheSubmitButton() {
-        System.out.println("Before Does it contain:   "+careerApplyPage.getDriver().getPageSource().contains("Please fill out this field"));
         careerApplyPage.getWebDriverWait().until(ExpectedConditions.elementToBeClickable(careerApplyPage.submitBtn))
                 .click();
     }
@@ -108,5 +107,47 @@ public class CareerApplyStepDef {
                         careerApplyPage.emailText,
                         "validationMessage",
                         "Please enter an email address."));
+    }
+
+    @When("^User sets the 'Title' as \"([^\"]*)\"$")
+    public void userSetsTheTitleAs(String title) {
+        careerApplyPage.getWebDriverWait().until(ExpectedConditions.visibilityOf(careerApplyPage.fullNameText));
+        careerApplyPage.titleText.sendKeys(title);
+    }
+
+    @And("^User sets the 'Address' as \"([^\"]*)\"$")
+    public void userSetsTheAddressAs(String address) {
+        careerApplyPage.getWebDriverWait().until(ExpectedConditions.visibilityOf(careerApplyPage.addressText));
+        careerApplyPage.addressText.sendKeys(address);
+    }
+
+    @And("^User selects the 'Position' as \"([^\"]*)\"$")
+    public void userSelectsThePositionAs(String position) {
+        careerApplyPage.getWebDriverWait().until(ExpectedConditions.visibilityOf(careerApplyPage.positionSelectList));
+        Select positionDropDown = new Select(careerApplyPage.positionSelectList);
+        positionDropDown.selectByVisibleText(position);
+    }
+
+    @And("^User selects the 'Job Type' as \"([^\"]*)\"$")
+    public void userSelectsTheJobTypeAs(String jobType) {
+        careerApplyPage.getWebDriverWait().until(ExpectedConditions.visibilityOf(careerApplyPage.jobTypeSelectList));
+        Select jobTypeDropDown = new Select(careerApplyPage.jobTypeSelectList);
+        jobTypeDropDown.selectByVisibleText(jobType);
+    }
+
+    @And("^User clicks the 'Terms and Conditions' checkbox$")
+    public void userClicksTheTermsAndConditionsCheckbox() {
+        careerApplyPage.getWebDriverWait().until(ExpectedConditions.elementToBeClickable(careerApplyPage.termsAndConditionsChkBox))
+                .click();
+    }
+
+    @Then("^User should see the details submitted successfully message$")
+    public void userShouldSeeTheDetailsSubmittedSuccessfullyMessage()  {
+        String successMessage = "<strong>Success</strong> Your message was sent successfully! We will be in touch as soon as we can.";
+        careerApplyPage.getWebDriverWait().until(
+                ExpectedConditions.attributeContains(
+                        careerApplyPage.careerForm,
+                        "innerHTML",
+                        successMessage));
     }
 }

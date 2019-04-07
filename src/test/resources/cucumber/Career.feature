@@ -62,3 +62,19 @@ Feature: Career page of Hexad.de
     And User sets the 'Email' as "johnd@"
     When User clicks the Submit Button
     Then User should see the validation message to enter a valid email address
+
+  Scenario: Verify submission of the form with valid values
+    When User click the Apply button
+    Then Career Apply Page is rendered
+    When User sets the 'Title' as "Mr"
+    And User sets the 'Full Name' as "John Doe"
+    And User sets the 'Email' as "johnd@gmail.com"
+    And User sets the 'Address' as "445 Mount Eden Road, Mount Eden, Auckland"
+    And User sets the 'Phone' as "1234567890"
+    And User selects the file to upload
+    And User selects the 'Position' as "UI Developer"
+    And User selects the 'Job Type' as "Full-Time"
+    And User clicks the 'Terms and Conditions' checkbox
+#   #Uncomment the following two lines if you want to test the positive flow
+#    When User clicks the Submit Button
+#    Then User should see the details submitted successfully message
