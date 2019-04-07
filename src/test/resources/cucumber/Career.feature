@@ -13,7 +13,7 @@ Feature: Career page of Hexad.de
 
   Scenario: Verify Heading of the Job description for the UI developer job
     When User click the Job Description button of the UI developer job
-    Then Job Description of the UI developer job is displayed correctly
+    Then Job Description Heading of the UI developer job is displayed correctly
 
   Scenario: Verify validation on the 'Full Name' field when career form submitted without entering any information
     When User click the Apply button

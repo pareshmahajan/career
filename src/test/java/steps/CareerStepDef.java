@@ -40,8 +40,8 @@ public class CareerStepDef {
         careerPage.clickJobDescriptionButton();
     }
 
-    @Then("^Job Description of the UI developer job is displayed correctly$")
-    public void jobDescriptionOfTheUIDeveloperJobIsDisplayedCorrectly() {
+    @Then("^Job Description Heading of the UI developer job is displayed correctly$")
+    public void jobDescriptionHeadingOfTheUIDeveloperJobIsDisplayedCorrectly() {
         careerPage.verifyHeadingOfTheUIDeveloperJob();
     }
 }
