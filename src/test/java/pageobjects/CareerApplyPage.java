@@ -121,7 +121,7 @@ public class CareerApplyPage extends BasePage {
 
     public void selectFileToUpload() {
         getWebDriverWait().until(ExpectedConditions.visibilityOf(uploadFile));
-        String filePath = "/Users/pareshmahajan/career/src/test/resources/data/resume.txt";
+        String filePath = System.getProperty("user.dir")+"/src/test/resources/data/resume.txt";
         uploadFile.sendKeys(filePath);
     }
 
