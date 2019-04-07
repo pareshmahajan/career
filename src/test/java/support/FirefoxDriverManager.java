@@ -5,7 +5,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 class FirefoxDriverManager{
 
-    private FirefoxDriver driver;
+    private WebDriver driver;
 
     private WebDriver createDriver() {
         return driver = new FirefoxDriver();
