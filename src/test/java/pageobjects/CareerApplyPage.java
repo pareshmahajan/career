@@ -1,11 +1,15 @@
 package pageobjects;
 
 import com.google.inject.Inject;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import support.World;
+
+import java.text.Collator;
+import java.util.Locale;
 
 public class CareerApplyPage extends BasePage {
 
@@ -175,5 +179,20 @@ public class CareerApplyPage extends BasePage {
                         "innerHTML",
                         successMessage)
         );
+    }
+
+    public void assertValuesDisplayedInPositionDropdown() {
+        Collator collator = Collator.getInstance(Locale.GERMAN);
+        collator.setStrength(Collator.PRIMARY);
+
+        getWebDriverWait().until(ExpectedConditions.visibilityOf(positionSelectList));
+        Select positionDropDown = new Select(positionSelectList);
+
+        int size = positionDropDown.getOptions().size();
+
+        for (int i = 0; i < size - 1; i++) {
+            Assert.assertTrue(collator.equals(getScenarioData().getPositionList().get(i),
+                    positionDropDown.getOptions().get(i+1).getText()));
+        }
     }
 }

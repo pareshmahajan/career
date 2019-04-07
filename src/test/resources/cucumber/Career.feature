@@ -78,3 +78,10 @@ Feature: Career page of Hexad.de
 #   #Uncomment the following two lines if you want to test the positive flow
 #    When User clicks the Submit Button
 #    Then User should see the details submitted successfully message
+
+  Scenario: Verify Available positions on the career page matches the values in Position drop down in the Career Apply page
+    When I remember the list of Available positions on the career page
+    When User click the Apply button
+    Then Career Apply Page is rendered
+    And User can see the same values in the 'Position' dropdown as captured from the Career page
+

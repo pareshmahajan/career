@@ -8,4 +8,5 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class World {
     public WebDriver driver = new FirefoxDriverManager().getDriver();
     public WebDriverWait webDriverWait = new WebDriverWaitHelper().getWaitInstance(driver);
+    public ScenarioData scenarioData = new ScenarioData();
 }
