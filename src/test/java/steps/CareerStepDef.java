@@ -18,8 +18,8 @@ public class CareerStepDef {
         this.careerPage = careerPage;
     }
 
-    @When("^User opens career site of the hexad website$")
-    public void userOpensCareerSiteOfTheHexadWebsite(){
+    @When("^User opens career page of the hexad website$")
+    public void userOpensCareerPageOfTheHexadWebsite(){
         careerPage.getDriver().get("https://hexad.de/en/careers.html");
     }
 

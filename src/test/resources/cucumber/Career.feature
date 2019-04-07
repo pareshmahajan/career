@@ -4,7 +4,7 @@ Feature: Career page of Hexad.de
   I want to use the career page of the hexad.de
 
   Background:
-    When User opens career site of the hexad website
+    When User opens career page of the hexad website
     Then Career page is rendered
 
   Scenario: Navigate to Apply Page
