@@ -16,6 +16,8 @@ dependencies {
     testCompile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
     testCompile 'junit:junit:4.12'
     testCompile 'info.cukes:cucumber-java8:1.2.5', 'info.cukes:cucumber-junit:1.2.5'
+    compile group: 'com.google.inject', name: 'guice', version:'4.1.0'
+    compile group: 'info.cukes', name: 'cucumber-guice', version: '1.2.5'
 }
 
 
