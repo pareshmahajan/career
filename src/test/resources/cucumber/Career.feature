@@ -7,3 +7,11 @@ Feature: Career page of Hexad.de
 
   When User opens career site of the hexad website
   Then Career page is rendered
+
+
+  Scenario: Navigate to Apply Page
+
+    When User opens career site of the hexad website
+    Then Career page is rendered
+    When User click the Apply button
+    Then Career Apply Page is rendered

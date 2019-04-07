@@ -28,6 +28,11 @@ public class CareerStepDef {
         Assert.assertEquals("WE HAVE BEEN LOOKING FOR YOU" ,careerPage.h2Tag.getText());
     }
 
+    @When("^User click the Apply button$")
+    public void userClickTheApplyButton() {
+        careerPage.applyButton.click();
+    }
+
     @After
     public void quitBrowser(){
         careerPage.getDriver().quit();
