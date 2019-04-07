@@ -92,12 +92,21 @@ public class CareerApplyStepDef {
     }
 
     @Then("^User should see the validation message for the 'Terms and Conditions' checkbox$")
-    public void userShouldSeeTheValidationMessageForTheTermsAndConditionsCheckbox()  {
+    public void userShouldSeeTheValidationMessageForTheTermsAndConditionsCheckbox() {
         String errorMessage = "Please check this box if you want to proceed.";
         careerApplyPage.getWebDriverWait().until(
                 ExpectedConditions.attributeContains(
                         careerApplyPage.termsAndConditionsChkBox,
                         "validationMessage",
                         errorMessage));
+    }
+
+    @Then("^User should see the validation message to enter a valid email address$")
+    public void userShouldSeeTheValidationMessageToEnterAValidEmailAddress() {
+        careerApplyPage.getWebDriverWait().until(
+                ExpectedConditions.attributeContains(
+                        careerApplyPage.emailText,
+                        "validationMessage",
+                        "Please enter an email address."));
     }
 }
