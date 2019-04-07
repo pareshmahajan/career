@@ -11,7 +11,7 @@ Feature: Career page of Hexad.de
     When User click the Apply button
     Then Career Apply Page is rendered
 
-  Scenario: Verify Job description of the UI developer job
+  Scenario: Verify Heading of the Job description for the UI developer job
     When User click the Job Description button of the UI developer job
     Then Job Description of the UI developer job is displayed correctly
 
