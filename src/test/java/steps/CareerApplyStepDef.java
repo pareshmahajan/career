@@ -2,7 +2,7 @@ package steps;
 
 import com.google.inject.Inject;
 import cucumber.api.java.en.Then;
-import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import pageobjects.CareerApplyPage;
 
 public class CareerApplyStepDef {
@@ -16,8 +16,8 @@ public class CareerApplyStepDef {
 
 
     @Then("^Career Apply Page is rendered$")
-    public void careerApplyPageIsRendered() throws Exception{
-        Thread.sleep(1000);
-        Assert.assertEquals("APPLY NOW TO JOIN US" ,careerApplyPage.h2Tag.getText());
+    public void careerApplyPageIsRendered() {
+        careerApplyPage.getWebDriverWait().until(ExpectedConditions.textToBePresentInElement(careerApplyPage.h2Tag,
+                "APPLY NOW TO JOIN US"));
     }
 }

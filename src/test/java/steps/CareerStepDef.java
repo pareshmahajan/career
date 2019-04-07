@@ -18,9 +18,7 @@ public class CareerStepDef {
 
     @When("^User opens career site of the hexad website$")
     public void userOpensCareerSiteOfTheHexadWebsite(){
-
         careerPage.getDriver().get("https://hexad.de/en/careers.html");
-
     }
 
     @Then("^Career page is rendered$")
