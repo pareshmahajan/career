@@ -1,7 +1,6 @@
 package steps;
 
 import com.google.inject.Inject;
-import cucumber.api.PendingException;
 import cucumber.api.java.After;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -12,6 +11,7 @@ import pageobjects.CareerPage;
 public class CareerStepDef {
 
     private CareerPage careerPage;
+    private static final String URL = "https://hexad.de/en/careers.html";
 
     @Inject
     public CareerStepDef(CareerPage careerPage){
@@ -20,7 +20,7 @@ public class CareerStepDef {
 
     @When("^User opens career page of the hexad website$")
     public void userOpensCareerPageOfTheHexadWebsite(){
-        careerPage.getDriver().get("https://hexad.de/en/careers.html");
+        careerPage.getDriver().get(URL);
     }
 
     @Then("^Career page is rendered$")
