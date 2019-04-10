@@ -2,6 +2,9 @@
 
 Selenium tests for career page of [Hexad](https://hexad.de/en/careers.html)
 
+## Assumption:
+Test cases for headers footers and other contents are excluded from the script for user flows of career page.
+
 ## Pre-requisite to run the tests:
 - Firefox browser (version 66.0.2) should have been installed on the client machine where execution will be kicked off
 
