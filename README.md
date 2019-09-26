@@ -1,6 +1,6 @@
 ## Description
 
-Selenium tests for career page of [Hexad](https://hexad.de/en/careers.html)
+Selenium tests for career page of [some company](https://hexad.de/en/careers.html)
 
 ## Assumption:
 Test cases for headers footers and other contents are excluded from the script for user flows of career page.
